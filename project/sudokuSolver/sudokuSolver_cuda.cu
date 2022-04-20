@@ -1,8 +1,4 @@
 /*-------------------------------------------------------------------------------------------------------------
- *   Name:		    Jason Bisnette
- *   Class:		    CSC 718
- *   Professor:	    Dr. Yong Wang
- *   Assignment:	Final Project
  *   Due Date:	    08 December 2021
  *   File Name: 	sudokuSolver_cuda.cu
  *   Description:
