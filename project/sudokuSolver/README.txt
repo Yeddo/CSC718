@@ -1,37 +1,33 @@
 /*--------------------------------------------------------------------------------------------
- *   Name:		    Jason Bisnette
- *   Class:		    CSC 718
- *   Professor:	    Dr. Yong Wang
- *   Assignment:	Project
- *   Due Date:	    08 December 2021
+ *   Due Date:	    	08 December 2021
  *   File Name: 	README.txt
  *   Description:	Instructions for files
  *-------------------------------------------------------------------------------------------*/
 
-# Twenty Nine (9) files included:
+# Nine (9) files included:
 	1 - Makefile
 	2 - README.txt
-    3 - sudokuSolver_serial.c
+    	3 - sudokuSolver_serial.c
 	4 - sudokuSolver_serial
-    5 - sudokuSolver_omp.c
+    	5 - sudokuSolver_omp.c
 	6 - sudokuSolver_omp
-    7 - sudokuSolver_cuda.cu
-    8 - sudokuSolver_cuda
-    9 - sudokuPuzzles/      <-- folder containing various puzzles/sizes
+    	7 - sudokuSolver_cuda.cu
+    	8 - sudokuSolver_cuda
+    	9 - sudokuPuzzles/      <-- folder containing various puzzles/sizes
 
 # NOTES -----------------------------------------------------------------------------------------------------------------------
 
 	- Created all code in VS Code on Ubuntu/Focal Linux. 
-    - All will compile on Ubuntu w/appropriate packages, namely CUDA (sudo apt install nvidia-cuda-toolkit).
+    	- All will compile on Ubuntu w/appropriate packages, namely CUDA (sudo apt install nvidia-cuda-toolkit).
 
-    - Serial version and OpenMP versions tested on Ubuntu/Focal Linux. These will run any n x n dimension 
-    puzzle.
+    	- Serial version and OpenMP versions tested on Ubuntu/Focal Linux. These will run any n x n dimension 
+    	puzzle.
 
-    - CUDA version ran on DSU  Amazon Web Services (AWS) neuron environment. This will only work with
-    9 x 9 puzzles.
+    	- CUDA version ran on DSU  Amazon Web Services (AWS) neuron environment. This will only work with
+    	9 x 9 puzzles.
 
-    - No need to specifiy threads for the openmp version. The code will determine that for your system. 
-    I used int threads = omp_get_num_procs(); and omp_set_num_threads(threads); to set the threads.
+   	- No need to specifiy threads for the openmp version. The code will determine that for your system. 
+   	I used int threads = omp_get_num_procs(); and omp_set_num_threads(threads); to set the threads.
 
 	- These programs use a backtracking algorithm to complete Sudoku puzzles: https://bit.ly/3d3kGTL.
 
@@ -39,9 +35,9 @@
 
 	- type "make"
 	- or 
-    - for serial program, gcc -Wall -g3 sudokuSolver_serial.c -o sudokuSolver_serial -lm
-    - for OpenMP gcc -Wall -g3 -fopenmp sudokuSolver_omp.c -o sudokuSolver_omp -lm
-    - for CUDA program, nvcc sudokuSolver_cuda.cu -o sudokuSolver_cuda -lm -arch=sm_35 -g -G
+   	- for serial program, gcc -Wall -g3 sudokuSolver_serial.c -o sudokuSolver_serial -lm
+    	- for OpenMP gcc -Wall -g3 -fopenmp sudokuSolver_omp.c -o sudokuSolver_omp -lm
+    	- for CUDA program, nvcc sudokuSolver_cuda.cu -o sudokuSolver_cuda -lm -arch=sm_35 -g -G
 
 # How to Execute -----------------------------------------------------------------------------------------------------------------------
 
@@ -53,24 +49,24 @@
 
 # Average run time of sudokuSolver_serial:
 	
-    - 9x9:
-    Easiest: 0m0.004 seconds
-    Medium: 0m0.006 seconds
-    Hard: 0m0.025 seconds
-    Diabolical: 0m0.549 seconds
-    Worst case: 0m25.065 seconds
+    	- 9x9:
+    	Easiest: 0m0.004 seconds
+    	Medium: 0m0.006 seconds
+    	Hard: 0m0.025 seconds
+    	Diabolical: 0m0.549 seconds
+    	Worst case: 0m25.065 seconds
 
-    - 16x16
-    Easiest: 0m0.942 seconds
-    Medium: ran for 40+ min and was still going. Stopped for time’s sake.
-    Hardest: ran too long and the medium went for 40+ min so I did not continue for time’s sake.
+    	- 16x16
+    	Easiest: 0m0.942 seconds
+    	Medium: ran for 40+ min and was still going. Stopped for time’s sake.
+    	Hardest: ran too long and the medium went for 40+ min so I did not continue for time’s sake.
 
-    - 25x25
-    Easy: 0m10.866 seconds
-    Hard: ran too long so I did not continue for time’s sake.
+    	- 25x25
+    	Easy: 0m10.866 seconds
+    	Hard: ran too long so I did not continue for time’s sake.
 
-    - 64x64
-    Easy: 0m5.349 seconds
+    	- 64x64
+    	Easy: 0m5.349 seconds
 
 # Expected output of sudokuSolver_serial:
 	- After running the program the following will be displayed in the terminal:
@@ -118,23 +114,23 @@ Solved sudoku :
 
 # Average run time of sudokuSolver_omp:
 	- 9x9
-    Easiest: 0.000205 seconds
-    Medium: 0.002219 seconds
-    Hard: 0.011838 seconds
-    Diabolical: 0.078208 seconds
-    Worst case: 0.757406 seconds
+    		Easiest: 0.000205 seconds
+    		Medium: 0.002219 seconds
+    		Hard: 0.011838 seconds
+    		Diabolical: 0.078208 seconds
+    		Worst case: 0.757406 seconds
 
-    - 16x16
-    Easy: 0.000641 seconds
-    Medium: 0.000553 seconds
-    Hard: 34.530307 seconds
+	- 16x16
+    		Easy: 0.000641 seconds
+    		Medium: 0.000553 seconds
+    		Hard: 34.530307 seconds
 
-    - 25x25
-    Easy: 0.000517 seconds
-    Hard: 0.000927 seconds
+	- 25x25
+    		Easy: 0.000517 seconds
+    		Hard: 0.000927 seconds
 
-    - 64x64
-    Easy: 0.003575 seconds
+    	- 64x64
+    		Easy: 0.003575 seconds
 
 # Expected output of sudokuSolver_omp:
 	- After running the program the following will be displayed in the terminal:
@@ -179,16 +175,16 @@ Solved sudoku :
 
 # How to run sudokuSolver_mpi:
 	-  ./sudokuSolver_cuda <threadPerBlock> <maxBlocks> <puzzleFile>
-    - ex: ./sudokuSolver_cuda 1024 512 <puzzleFile>
-    - ex: ./sudokuSolver_cuds 512 256 <puzzleFile>
+    	- ex: ./sudokuSolver_cuda 1024 512 <puzzleFile>
+    	- ex: ./sudokuSolver_cuds 512 256 <puzzleFile>
 
 # Average run time:
     - 9x9:
-    Easiest: 0m0.391 seconds
-    Medium: 0m0.833 seconds
-    Hard: 0m1.151 seconds
-    Diabolical: 0m2.476 seconds
-    Worst case: 67m21.954 seconds
+    	Easiest: 0m0.391 seconds
+    	Medium: 0m0.833 seconds
+    	Hard: 0m1.151 seconds
+    	Diabolical: 0m2.476 seconds
+    	Worst case: 67m21.954 seconds
 
 
 # Expected output of sudokuSolver_cuda:
