@@ -12,7 +12,7 @@
 #include <pthread.h>
 
 ///-----------------------------------------------------------------
-///   Name:		Jason Bisnette
+///   Name:		JB
 ///   Class:		CSC 718
 ///   Professor:	Dr. Yong Wang
 ///   Assignment:	#1
